@@ -3,14 +3,14 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Nishant's Music Lounge</title>
+  <title>Nishant's Lounge & Gallery</title>
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&display=swap" rel="stylesheet">
   <style>
     :root {
       --bg: #090d16;
-      --card-bg: rgba(22, 27, 46, 0.7);
+      --card-bg: rgba(22, 27, 46, 0.75);
       --accent: #8b5cf6;
       --accent-glow: rgba(139, 92, 246, 0.4);
       --text-main: #f8fafc;
@@ -31,7 +31,7 @@
       display: flex;
       flex-direction: column;
       align-items: center;
-      padding: 20px 16px 80px;
+      padding: 24px 16px 80px;
     }
     .header {
       width: 100%;
@@ -40,9 +40,8 @@
       margin-bottom: 24px;
     }
     .header h1 {
-      font-size: 1.6rem;
+      font-size: 1.7rem;
       font-weight: 800;
-      letter-spacing: -0.5px;
       background: linear-gradient(135deg, #fff, #c4b5fd);
       -webkit-background-clip: text;
       -webkit-text-fill-color: transparent;
@@ -65,25 +64,23 @@
       display: flex;
       flex-direction: column;
       align-items: center;
+      margin-bottom: 24px;
     }
     .cover-art {
-      width: 200px;
-      height: 200px;
-      border-radius: 20px;
+      width: 180px;
+      height: 180px;
+      border-radius: 22px;
       background: linear-gradient(135deg, #6366f1, #a855f7);
       display: flex;
       align-items: center;
       justify-content: center;
       box-shadow: 0 12px 28px var(--accent-glow);
       margin-bottom: 20px;
-      position: relative;
-      overflow: hidden;
     }
     .cover-art svg {
-      width: 80px;
-      height: 80px;
+      width: 70px;
+      height: 70px;
       fill: #ffffff;
-      opacity: 0.9;
     }
     .song-details {
       text-align: center;
@@ -91,7 +88,7 @@
       margin-bottom: 16px;
     }
     .song-title {
-      font-size: 1.25rem;
+      font-size: 1.2rem;
       font-weight: 700;
       white-space: nowrap;
       overflow: hidden;
@@ -111,7 +108,7 @@
       height: 6px;
       -webkit-appearance: none;
       appearance: none;
-      background: rgba(255, 255, 255, 0.1);
+      background: rgba(255, 255, 255, 0.12);
       border-radius: 10px;
       outline: none;
       cursor: pointer;
@@ -148,21 +145,17 @@
       display: flex;
       align-items: center;
       justify-content: center;
-      transition: transform 0.15s ease;
-    }
-    .btn-circle:active {
-      transform: scale(0.9);
     }
     .btn-play {
-      width: 60px;
-      height: 60px;
+      width: 58px;
+      height: 58px;
       border-radius: 50%;
       background: linear-gradient(135deg, #a855f7, #6366f1);
       box-shadow: 0 8px 20px var(--accent-glow);
     }
     .btn-play svg {
-      width: 26px;
-      height: 26px;
+      width: 24px;
+      height: 24px;
       fill: #fff;
     }
     .playlist-section {
@@ -170,12 +163,12 @@
       border-top: 1px solid var(--border);
       padding-top: 16px;
     }
-    .playlist-header {
+    .section-title {
       font-size: 0.85rem;
       font-weight: 700;
       color: var(--text-sub);
       text-transform: uppercase;
-      letter-spacing: 0.5px;
+      letter-spacing: 0.6px;
       margin-bottom: 12px;
     }
     .track-list {
@@ -192,25 +185,52 @@
       justify-content: space-between;
       padding: 10px 14px;
       border-radius: 12px;
-      background: rgba(255, 255, 255, 0.03);
+      background: rgba(255, 255, 255, 0.04);
       cursor: pointer;
-      transition: background 0.2s ease;
     }
     .track-item.active {
-      background: rgba(168, 85, 247, 0.15);
-      border: 1px solid rgba(168, 85, 247, 0.4);
+      background: rgba(168, 85, 247, 0.2);
+      border: 1px solid rgba(168, 85, 247, 0.5);
     }
-    .track-name {
-      font-size: 0.88rem;
-      font-weight: 600;
+
+    /* Photo Gallery */
+    .gallery-card {
+      width: 100%;
+      max-width: 480px;
+      background: var(--card-bg);
+      backdrop-filter: blur(16px);
+      -webkit-backdrop-filter: blur(16px);
+      border: 1px solid var(--border);
+      border-radius: 28px;
+      padding: 24px;
+      box-shadow: 0 20px 40px rgba(0, 0, 0, 0.6);
+    }
+    .gallery-grid {
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+      gap: 12px;
+    }
+    .gallery-item {
+      width: 100%;
+      aspect-ratio: 1;
+      border-radius: 16px;
+      overflow: hidden;
+      border: 1px solid var(--border);
+      background: rgba(255, 255, 255, 0.03);
+    }
+    .gallery-item img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      display: block;
     }
   </style>
 </head>
 <body>
 
   <div class="header">
-    <h1>My Recorded Songs</h1>
-    <p>Tap any track to stream instantly</p>
+    <h1>Nishant's Lounge</h1>
+    <p>Music & Moments</p>
   </div>
 
   <div class="player-card">
@@ -219,8 +239,8 @@
     </div>
 
     <div class="song-details">
-      <div class="song-title" id="songTitle">Select a track</div>
-      <div class="song-artist" id="songArtist">Recorded Collection</div>
+      <div class="song-title" id="songTitle">Gaana chunein</div>
+      <div class="song-artist" id="songArtist">Nishant Verma</div>
     </div>
 
     <div class="progress-container">
@@ -244,28 +264,71 @@
     </div>
 
     <div class="playlist-section">
-      <div class="playlist-header">All Recordings</div>
+      <div class="section-title">My Recordings</div>
       <ul class="track-list" id="trackList"></ul>
     </div>
+  </div>
+
+  <div class="gallery-card">
+    <div class="section-title">Photo Gallery</div>
+    <div class="gallery-grid" id="galleryGrid"></div>
   </div>
 
   <audio id="audio"></audio>
 
   <script>
-    // Apne audio links yahan badal sakte ho:
+    // Aapke uploaded gaane
     const songs = [
       {
-        title: "Sample Song 1",
-        artist: "Nishant",
-        src: "https://www.soundhelix.com/examples/mp3/SoundHelix-Song-1.mp3"
+        title: "Enhanced Song",
+        artist: "Nishant Verma",
+        src: "enhanced_song.mp3"
       },
       {
-        title: "Sample Song 2",
-        artist: "Nishant",
-        src: "https://www.soundhelix.com/examples/mp3/SoundHelix-Song-2.mp3"
+        title: "Enhanced Song (12D)",
+        artist: "Nishant Verma",
+        src: "enhanced_song_12d.mp3"
+      },
+      {
+        title: "Enhanced Song (v3 Balanced)",
+        artist: "Nishant Verma",
+        src: "enhanced_song_v3_balanced.mp3"
+      },
+      {
+        title: "Recorded Audio 1",
+        artist: "Nishant Verma",
+        src: "AUD-20260613-WA0000.mp3"
+      },
+      {
+        title: "Recorded Audio 2",
+        artist: "Nishant Verma",
+        src: "AUD-20260630-WA0000.opus"
+      },
+      {
+        title: "Recorded Audio 3",
+        artist: "Nishant Verma",
+        src: "AUD-20260706-WA0001.opus"
       }
     ];
 
+    // Aapki uploaded photos ke file names
+    const photos = [
+      "luvcutttiiee_14050805_221734673620785_7082729909988220977_n.jpg",
+      "luvcutttiiee_14050805_221740058864700_5033802930773663740_n.jpg",
+      "nish.exee_14050627_194103913989069_4323214558509831776_n.jpg",
+      "nish.exee_14050627_194107005423853_7306232535035767292_n.jpg"
+    ];
+
+    // Gallery Render
+    const galleryGrid = document.getElementById("galleryGrid");
+    photos.forEach(imgSrc => {
+      const box = document.createElement("div");
+      box.className = "gallery-item";
+      box.innerHTML = `<img src="${encodeURI(imgSrc)}" alt="Photo" onerror="this.parentElement.style.display='none'">`;
+      galleryGrid.appendChild(box);
+    });
+
+    // Audio Player Render
     let currentIdx = 0;
     const audio = document.getElementById("audio");
     const playBtn = document.getElementById("playBtn");
@@ -278,17 +341,18 @@
     const trackList = document.getElementById("trackList");
 
     function loadSong(index) {
+      if (!songs.length) return;
       currentIdx = index;
       const s = songs[index];
       songTitle.textContent = s.title;
       songArtist.textContent = s.artist;
-      audio.src = s.src;
+      audio.src = encodeURI(s.src);
       updatePlaylistUI();
     }
 
     function togglePlay() {
       if (audio.paused) {
-        audio.play();
+        audio.play().catch(e => console.log("Playback error:", e));
         playIcon.innerHTML = '<path d="M6 19h4V5H6v14zm8-14v14h4V5h-4z"/>';
       } else {
         audio.pause();
@@ -301,8 +365,12 @@
       songs.forEach((s, idx) => {
         const li = document.createElement("li");
         li.className = `track-item ${idx === currentIdx ? 'active' : ''}`;
-        li.innerHTML = `<span class="track-name">${s.title}</span>`;
-        li.onclick = () => { loadSong(idx); audio.play(); playIcon.innerHTML = '<path d="M6 19h4V5H6v14zm8-14v14h4V5h-4z"/>'; };
+        li.innerHTML = `<span style="font-size:0.88rem; font-weight:600;">${s.title}</span>`;
+        li.onclick = () => {
+          loadSong(idx);
+          audio.play();
+          playIcon.innerHTML = '<path d="M6 19h4V5H6v14zm8-14v14h4V5h-4z"/>';
+        };
         trackList.appendChild(li);
       });
     }
@@ -346,3 +414,6 @@
     }
 
     loadSong(0);
+  </script>
+</body>
+</html>
